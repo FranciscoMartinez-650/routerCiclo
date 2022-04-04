@@ -4,6 +4,7 @@
 
 <script>
 
+import aboutPage from './modules/pokemon/pages/aboutPage.vue'
 
 export default {
   name: 'App',
