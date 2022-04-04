@@ -1,13 +1,26 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import aboutPage from '../modules/pokemon/pages/aboutPage'
+
 import listPage from '../modules/pokemon/pages/listPage'
 import pokemonPage from '../modules/pokemon/pages/pokemonPage'
-import NoPageFound from '../modules/shared/pages/NoPageFound'
+import NoPageFound from '../modules/shared/pages/noPageFound'
 const routes = [
-    { path: '/', component: listPage },
-    { path: '/about', component: aboutPage },
-    { path: '/id', component: pokemonPage },
-    { path: '/:pathMatch(.*)*', component: NoPageFound },
+    { path: '/', 
+      component: () => import(/*webpackChunName: AboutPage*/'@/modules/pokemon/pages/listPage') 
+    },
+
+    { path: '/about', 
+      component: () => import(/*webpackChunName: AboutPage*/'@/modules/pokemon/pages/aboutPage')
+
+    },
+
+    { path: '/id', 
+      component: () => import(/*webpackChunName: AboutPage*/'@/modules/pokemon/pages/pokemonPage') 
+    },
+
+    { path: '/:pathMatch(.*)*', 
+      component: () => import(/*webpackChunName: AboutPage*/'@/modules/shared/pages/noPageFound') 
+    
+    }, 
   ]
 
 const router = createRouter({
