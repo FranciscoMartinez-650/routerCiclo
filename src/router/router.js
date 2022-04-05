@@ -13,7 +13,8 @@ const routes = [
     component: () => import(/* webpackChunkName: "AboutPage" */ '@/modules/pokemon/pages/aboutPage')
     },
 
-    { path: '/id', 
+    { path: '/:id', 
+      name: 'pokemon-id',
       component: () => import(/*webpackChunName: pokemonPage*/'@/modules/pokemon/pages/pokemonPage') 
     },
     //Expresión regular que expresa que si no se encuentra dicha ruta se mostrará la pagina 404, no
