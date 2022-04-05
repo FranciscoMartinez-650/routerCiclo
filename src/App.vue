@@ -1,16 +1,16 @@
 <template>
+  <Navbar />
   <img alt="Vue logo" src="./assets/logo.png">
   <router-view />
 </template>
 
 <script>
-
-import aboutPage from './modules/pokemon/pages/aboutPage.vue'
-
+import { defineAsyncComponent } from '@vue/runtime-core';
+//import Navbar from "./modules/shared/components/Navbar.vue"; 
 export default {
   name: 'App',
   components: {
-  
+      Navbar: defineAsyncComponent(() => import(/* webpackChunkName: "NavBar" */ '@/modules/shared/components/Navbar.vue'))
   }
 }
 </script>
