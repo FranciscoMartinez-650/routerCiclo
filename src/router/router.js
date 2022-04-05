@@ -15,7 +15,15 @@ const routes = [
 
     { path: '/:id', 
       name: 'pokemon-id',
-      component: () => import(/*webpackChunName: pokemonPage*/'@/modules/pokemon/pages/pokemonPage') 
+      component: () => import(/*webpackChunName: pokemonPage*/'@/modules/pokemon/pages/pokemonPage'),
+      props: (route) =>{
+       // const {id} = route.params
+        const id = Number( route.params.id)
+        //console.log(route)
+        return isNaN(id) ? {id: 1} : {id: Number(id)}
+          //id: Number(id)
+        
+      }
     },
     //Expresión regular que expresa que si no se encuentra dicha ruta se mostrará la pagina 404, no
     //necesariamente se utiliza expresiones regulares todo depende de la situación.
