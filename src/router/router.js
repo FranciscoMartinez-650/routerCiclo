@@ -16,17 +16,17 @@ const routes = [
             { 
                 path: 'home', 
                 name: 'pokemon-home',
-                component: () => import(/* webpackChunkName: "ListPage" */ '@/modules/pokemon/pages/ListPage'),
+                component: () => import(/* webpackChunkName: "ListPage" */ '@/modules/pokemon/pages/listPage'),
             },
             { 
                 path: 'about', 
                 name: 'pokemon-about',
-                component: () => import(/* webpackChunkName: "AboutPage" */ '@/modules/pokemon/pages/AboutPage')
+                component: () => import(/* webpackChunkName: "AboutPage" */ '@/modules/pokemon/pages/aboutPage')
             },
             { 
                 path: 'pokemonid/:id',
                 name: 'pokemon-id',
-                component: () => import(/* webpackChunkName: "PokemonPage" */ '@/modules/pokemon/pages/PokemonPage'),
+                component: () => import(/* webpackChunkName: "PokemonPage" */ '@/modules/pokemon/pages/pokemonPage'),
                 props: ( route ) => {
                     const id = Number( route.params.id );
                     return isNaN( id ) ? { id: 1 } : { id }
@@ -44,17 +44,17 @@ const routes = [
         path: '/dbz',
         name: 'dbz',
         beforeEnter: [ isAuthenticatedGuard ],
-        component: () => import(/* webpackChunkName: "DragonBallLayout" */ '@/modules/dbz/layouts/DragonBallLayout'),
+        component: () => import(/* webpackChunkName: "DragonBallLayout" */ '@/modules/DBZ/layouts/DragonBallLayout'),
         children: [
             { 
                 path: 'characters', 
                 name: 'dbz-characters',
-                component: () => import(/* webpackChunkName: "ListPage" */ '@/modules/dbz/pages/Characters'),
+                component: () => import(/* webpackChunkName: "ListPage" */ '@/modules/DBZ/pages/Characters'),
             },
             { 
                 path: 'about', 
                 name: 'dbz-about',
-                component: () => import(/* webpackChunkName: "ListPage" */ '@/modules/dbz/pages/About'),
+                component: () => import(/* webpackChunkName: "ListPage" */ '@/modules/DBZ/pages/About'),
             },
             {
                 path: '',
@@ -65,7 +65,7 @@ const routes = [
   
     { 
         path: '/:pathMatch(.*)*', 
-        component: () => import(/* webpackChunkName: "NoPageFound" */ '@/modules/shared/pages/NoPageFound')
+        component: () => import(/* webpackChunkName: "NoPageFound" */ '@/modules/shared/pages/noPageFound')
     },
 ]
 
