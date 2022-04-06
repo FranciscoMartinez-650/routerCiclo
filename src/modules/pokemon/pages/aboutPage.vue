@@ -1,65 +1,66 @@
 <template>
-    <h1>About 
-        template
-    </h1>
+    <h1>About Page</h1>
     <hr>
-    <h2>{{name}}</h2>
-    <button @click="onChangen">
-        cambiar nombre
+    <h2>{{ name }}</h2>
+    <button @click="onChangeName">
+        Cambiar nombre
     </button>
 </template>
+
+
 <script>
-export default{
-    data(){
+export default {
+
+    data() {
         return {
-            
             name: 'Paquito'
         }
     },
     methods: {
-        onChangen(){
-            console.log('se cambiara el nombre a fransua')
+        onChangeName() {
             this.name = 'Fransua'
         }
     },
-    beforeCreate () {
+
+    beforeCreate() {
         console.log('beforeCreate')
     },
-    created () {
+    created() {
+        this.name = 'Paquito'
         console.log('created')
-        //Peticiones HTTP
+        // Peticiones HTTP
     },
-    beforeMount () {
+    beforeMount() {
         console.log('beforeMount')
     },
-    mounted () {
+    mounted() {
         console.log('mounted')
     },
-    beforeUpdate () {
+    beforeUpdate() {
         console.log('beforeUpdate')
     },
-    updated () {
+    updated() {
         console.log('updated')
     },
-    activated () {  
+    activated() {
         console.log('activated')
     },
-    deactivated () {
+    deactivated() {
         console.log('deactivated')
     },
-    beforeUnmount () {
+    beforeUnmount() {
         console.log('beforeUnmount')
     },
-    unmounted () {
+    unmounted() {
         console.log('unmounted')
-    },  
-    errorCaptured () {
+    },
+    errorCaptured() {
         console.log('errorCaptured')
     },
-    renderTracked () {
+    renderTracked() {
         console.log('renderTracked')
     },
-    renderTriggered () {
+    renderTriggered() {
         console.log('renderTriggered')
     },
 }
